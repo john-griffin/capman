@@ -29,4 +29,6 @@ Capistrano::Configuration.instance(:must_exist).load do |configuration|
     end
   end
 
+  after "deploy:update", "foreman:export"
+  after "deploy:update", "foreman:restart"
 end
